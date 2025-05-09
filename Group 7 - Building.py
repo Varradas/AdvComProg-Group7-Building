@@ -46,7 +46,7 @@ class Building1(Building): #Laurence
     def location_action_menu(self):
         return f"Your Building's Method Menu Go Here"
     
-class Building2(Building): #Vinz
+class Building2(Building): #Vinz (You may use as reference pag malilito)
     def location_status(self):
         return f"Building 2 is at {self.location}, with a size of {self.size}m^2, it has {self.floors} floors, and {self.rooms} rooms in total."
     def location_action_menu(self):
