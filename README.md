@@ -11,6 +11,11 @@ Laboratory Activities 3 &amp; 4
 
 ## Description
 This project simulates the management of different types of buildings through object-oriented programming, each subclass represents a different building, all have common properties and methods, but each also has their unique functionalities.
+## Common Functions
+- :door: Toggle Doors Closed/Open
+- :bulb: Toggle Lights On/Off
+- :icecream: Toggle Air Conditioning On/Off
+## Unique Subclass Functions
 - :book: **Library**: Borrow and return books.
 - :department_store: **Mall**: Browse stores, add products to a cart, and checkout with a budget.
 - :books: **Research Lab**: Publish research and request lab equipment.
