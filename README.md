@@ -16,10 +16,10 @@ This project simulates the management of different types of buildings through ob
 - :bulb: Toggle Lights On/Off
 - :icecream: Toggle Air Conditioning On/Off
 ## Unique Subclass Functions
-- :book: **Library**: Borrow and return books.
-- :department_store: **Mall**: Browse stores, add products to a cart, and checkout with a budget.
-- :books: **Research Lab**: Publish research and request lab equipment.
-- :hamburger: **Canteen**: Order food, clean tables.
+- :book: **Library**: Borrow and return books. - by Mendoza Laurence
+- :department_store: **Mall**: Browse stores, add products to a cart, and checkout with a budget. - by De Castro, Vinz Gabriel
+- :books: **Research Lab**: Publish research and request lab equipment. - by Ponce, Jyvhan Earl
+- :hamburger: **Canteen**: Order food, clean tables. - by Gupilan, Shanlee Yvonne
 
 The program uses object-oriented principles with an abstract base class (`Building`) and concrete implementations for each building type. Users interact via a command-line menu system.
 
