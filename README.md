@@ -4,10 +4,10 @@ Laboratory Activities 3 &amp; 4
 # Building Management System :city_sunrise:
 
 ## Team Members
-- **Mendoza, John Laurence
-- De Castro, Vinz Gabriel
-- Ponce, Jyvhan Earl
-- Gupilan, Shanlee Yvonne**
+- **Mendoza, John Laurence**
+- **De Castro, Vinz Gabriel**
+- **Ponce, Jyvhan Earl**
+- **Gupilan, Shanlee Yvonne**
 
 ## Description
 This project simulates the management of different types of buildings through object-oriented programming, each subclass represents a different building, all have common properties and methods, but each also has their unique functionalities.
