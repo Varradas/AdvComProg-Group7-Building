@@ -240,7 +240,7 @@ class Building4(Building):
 # ------------------------------------------
 # STATIC BUILDING INSTANCES
 building1_name = "Library"
-building2_name = "Building02"
+building2_name = "Mall"
 building3_name = "Research Lab"
 building4_name = "Building04"
 
