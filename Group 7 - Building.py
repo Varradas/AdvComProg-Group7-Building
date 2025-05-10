@@ -77,20 +77,119 @@ class Library(Building):
 
 # ------------------------------------------
 # Building 2 - Vinz
-class Building2(Building):
+class Retail_Building(Building):
+    def __init__(self, location, size, floors, rooms, personal_budget=0):
+        super().__init__(location, size, floors, rooms)
+        self.personal_budget = personal_budget
+        self.stores_floor1 = [] 
+        self.stores_floor2 = []
+        self.cart = []
+        
     def location_status(self):
-        return f"Building 2 is at {self.location}, with a size of {self.size}m^2, it has {self.floors} floors, and {self.rooms} rooms in total."
+        total_stores = len(self.stores_floor1) + len(self.stores_floor2)
+        return f"Welcome to {self.location}! \n{self.location} has a Gross Floor Area of {self.size}m²\nThere are {self.floors} floors and {total_stores} stores.\nYour Budget: {self.personal_budget} PHP"
 
     def location_action_menu(self):
-        print("[1] [General Actions]  \n[2] [Go Back]")
-        choice = int(input("Action Chosen: "))
-        if choice == 1:
-            general_actions(building2)
-        elif choice == 2:
-            return menu()
+        while True:
+            print("\n[1] [Check Building Facilities] \n[2] [Roam 1st Floor Stores] \n[3] [Roam 2nd Floor Stores] \n[0] [Go Back]")
+            choice = input("Action: ")
+            if choice == '1':
+                general_actions(self)
+            elif choice == '2':
+                self._handle_floor_selection(1)
+            elif choice == '3':
+                self._handle_floor_selection(2)
+            elif choice == '0':
+                return menu()
+            else:
+                print("Invalid choice!")
+    def _handle_floor_selection(self, floor):
+        if not self.doors_are_open:
+            print("Doors are closed! Open them first.")
+            return
+        stores = self.stores_floor1 if floor == 1 else self.stores_floor2
+        while True:
+            print(f"\n--- Floor {floor} Stores ---")
+            for i, store in enumerate(stores, 1):
+                print(f"[{i}] [{store['name']}]")
+            print("[0] Go Back")
+            choice = input("Select store: ")
+            if choice == "0":  # Go back condition
+                return
+            elif choice.isdigit() and 1 <= int(choice) <= len(stores):
+                self._enter_store(stores[int(choice)-1])
+            else:
+                print("Invalid choice!")
+
+    def _enter_store(self, store):
+        while True:
+            print(f"\n-- {store['name']} -- \n[1] [View Products] \n[2] [View Cart] \n[3] [Checkout] \n[0] [Go Back]")
+            choice = input("Action: ")
+            if choice == '1':
+                self._view_products(store)
+            elif choice == '2':
+                self._view_cart()
+            elif choice == '3':
+                self._checkout()
+            elif choice == '0':
+                return
+            else:
+                print("Invalid choice!")
+
+    def _view_products(self, store):
+        products = store['products']
+        print("\nAvailable Products:")
+        for i, p in enumerate(products, 1):
+            print(f"[{i}] {p['name']} - {p['price']} PHP")
+        print(f"[0] Go Back")
+        choice = input("Select product: ")
+        if choice == "0":
+            return
+        elif choice.isdigit() and 1 <= int(choice) <= len(products):
+            product = products[int(choice)-1]
+            qty = int(input("Quantity: "))
+            self.cart.append({
+                'product': product['name'],
+                'price': product['price'],
+                'quantity': qty,
+                'total': product['price'] * qty
+            })
+            print(f"Added {qty}x {product['name']} to cart.")
         else:
-            print("Please Select A Valid Number!")
-            return menu2(building2)
+            print("Invalid choice!")
+
+    def _view_cart(self):
+        if not self.cart:
+            print("Cart is empty.")
+            return
+        total = 0
+        print("\n--- Your Cart ---")
+        for i, item in enumerate(self.cart, 1):
+            print(f"{i}. {item['product']} ({item['quantity']}x) = {item['total']} PHP")
+            total += item['total']
+        print(f"TOTAL: {total} PHP\n[1] Remove item\n[0] Back")
+        choice = input("Action: ")
+        if choice == '1':
+            idx = int(input("Enter item number: ")) - 1
+            if 0 <= idx < len(self.cart):
+                removed = self.cart.pop(idx)
+                print(f"Removed {removed['product']}.")
+            else:
+                print("Invalid index!")
+        elif choice != '0':
+            print("Invalid choice!")
+
+    def _checkout(self):
+        total = sum(item['total'] for item in self.cart)
+        if total == 0:
+            print("Cart is empty!")
+            return
+        if self.personal_budget < total:
+            print("Insufficient funds!")
+            return
+        self.personal_budget -= total
+        print(f"Paid {total} PHP. Remaining budget: {self.personal_budget} PHP")
+        self.cart.clear()
 
 # ------------------------------------------
 # Building 3 - Jyvhan (YOU) ➜ RESEARCH LAB
@@ -175,7 +274,7 @@ def menu2(selected_building):
     selected_building.location_action_menu()
 
 def general_actions(selected_building):
-    print(f"\nToggable Options: \n[1] [Doors] \t\t[Current status: {selected_building.door_status()}] \n[2] [Lights] \t\t[Current status: {selected_building.lights_status()}] \n[3] [Air Conditioner] \t[Current status: {selected_building.ac_status()}] \n[4] [Go Back]")
+    print(f"\nToggable Options: \n[1] [Doors] \t\t[Current status: {selected_building.door_status()}] \n[2] [Lights] \t\t[Current status: {selected_building.lights_status()}] \n[3] [Air Conditioner] \t[Current status: {selected_building.ac_status()}] \n[0] [Go Back]")
     choice = int(input("Action No. : "))
     if choice == 1:
         selected_building.toggle_doors()
@@ -189,7 +288,7 @@ def general_actions(selected_building):
         selected_building.toggle_air_conditioning()
         print(f"Air Conditioner is now {selected_building.ac_status()}!")
         return general_actions(selected_building)
-    elif choice == 4:
+    elif choice == 0:
         return menu2(selected_building)
 
 # ------------------------------------------
