@@ -39,13 +39,41 @@ class Building(ABC): #PARENT CLASS, NO TOUCHY
         pass
 
 #SubClasses, dont remove the abstract methods or it will break.
-class Building1(Building): #Laurence
+class Library(Building): #Laurence
+    def __init__(self, location, size, floors, rooms, num_books, opening_hours):
+        super().__init__(location, size, floors, rooms)
+        self.num_books = num_books
+        self.opening_hours = opening_hours
+
     def location_status(self):
-        return f"Building 1 is at {self.location}, with a size of {self.size}m^2, it has {self.floors} floors, and {self.rooms} rooms in total."
-    
+        return (f"The Library is at {self.location}, with a size of {self.size}m^2, "
+                f"it has {self.floors} floors, {self.rooms} rooms, "
+                f"{self.num_books} books, and is open during {self.opening_hours}.")
+
     def location_action_menu(self):
-        return f"Your Building's Method Menu Go Here"
-    
+        print(f"[1] [General Actions]  \n[2] [Borrow Book]  \n[3] [Return Book]  \n[4] [Go Back]")
+        choice = int(input("Action Chosen: "))
+        if choice == 1:
+            general_actions(building1)
+        elif choice == 2:
+            borrow_book(building1) 
+        elif choice == 3:
+            return_book(building1)
+        elif choice == 4:
+            return menu()
+        else:
+            print(f"Please Select A Valid Number!")
+            return menu2(building1)
+
+    def borrow_book_action(self, book_title):
+        print(f"----------------------------------------------------------\nYou have borrowed '{book_title}'. Please return it on time!")
+        print("----------------------------------------------------------")
+
+    def return_book_action(self, book_title):
+        print(f"----------------------------------------------------------\nYou have returned '{book_title}'. Thank you!")
+        print("----------------------------------------------------------")
+
+        
 class Building2(Building): #Vinz (You may use as reference pag malilito)
     def location_status(self):
         return f"Building 2 is at {self.location}, with a size of {self.size}m^2, it has {self.floors} floors, and {self.rooms} rooms in total."
@@ -75,12 +103,12 @@ class Building4(Building): #Shanlee
 
 # DO NOT CHANGE THE VARIABLE NAME (eg. building1_name and building1) CHANGE THE ACTUAL VALUE TO MATCH THE SUBCLASS (eg. Building1 -> Library)
 
-building1_name = "Building01"
+building1_name = "Library"
 building2_name = "Building02"
 building3_name = "Building03"
 building4_name = "Building04"
 
-building1 = Building1("Batangas", 100, 4, 24)
+building1 = Library("Batangas", 100, 4, 24, 2000, "8AM - 5PM")
 building2 = Building2("Taal", 50, 2, 16)
 building3 = Building3("Lipa", 150, 6, 36)
 building4 = Building4("Quezon", 200, 10, 100)
@@ -129,5 +157,20 @@ def general_actions(selected_building): # GENERAL MENU (UNIVERSAL)
         return general_actions(selected_building)
     elif choice ==4:
         return menu2(selected_building)
+    
+# LIBRARY-SPECIFIC ACTIONS
+def borrow_book(library):
+    book_title = input("----------------------------------------------------------\nEnter the title of the book to borrow: ")
+    print("----------------------------------------------------------\n")
+    library.borrow_book_action(book_title)
+    return menu2(library)
+
+
+def return_book(library):
+    book_title = input("----------------------------------------------------------\nEnter the title of the book to return: ")
+    print("----------------------------------------------------------\n")
+    library.return_book_action(book_title)
+    return menu2(library)
 
 menu() #STARTS THE PROGRAM
+
