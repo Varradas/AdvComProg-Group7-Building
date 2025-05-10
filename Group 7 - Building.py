@@ -244,12 +244,12 @@ class CanteenBuilding(Building):
 
     def order_food(self, item):
         if item in self.menu_items:
-            print(f"\n{item} has been ordered. Please wait while we prepare it.")
+            print(f"\n[{item} has been ordered. Please wait while we prepare it.]\n")
         else:
-            print(f"\nSorry, {item} is not available on the menu.")
+            print(f"\n[Sorry, {item} is not available on the menu.]\n")
 
     def clean_tables(self):
-        print(f"\nCleaning all {self.number_of_tables} tables in the canteen.")
+        print(f"\n[Cleaning all {self.number_of_tables} tables in the canteen.]\n")
 
     def location_status(self):
         return f"\nWelcome to the {self.location}, this canteen covers a size of {self.size}m², it has {self.floors} floor, and {self.rooms} room in total, with {self.number_of_tables} total tables."
@@ -262,7 +262,7 @@ class CanteenBuilding(Building):
                 general_actions(building4)
             elif choice == 2:
                 if not self.doors_are_open:
-                    print(f"Canteen is closed! Please open them first.")
+                    print(f"\n[Canteen is closed! Please open them first.]")
                     return menu2(building4)
                 else:
                     building4.order_food(input(f"\n[Burger] \n[Fries] \n[Shawarma] \n[Soda] \n[Water] \nType Name of Food: "))
