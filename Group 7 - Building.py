@@ -275,19 +275,19 @@ class CanteenBuilding(Building):
                 return menu2(building4)
 
 # ------------------------------------------
-# STATIC BUILDING INSTANCES
 building1_name = "Library"
 building2_name = "Mall"
 building3_name = "Research Lab"
 building4_name = "Canteen"
 
+# OBJECT CREATION
 building1 = Library("Batangas", 100, 4, 24, 2000, "8AM - 5PM")
 building2 = Mall("SM Lemery", 14000, 2, 4, personal_budget=100000)
 building3 = ResearchLab("Lipa", 150, 6, 36, 5, "9AM - 6PM")
 building4 = CanteenBuilding("Campus North Wing", "300 sqm", 1, 1, 20, ["Burger", "Fries", "Shawarma", "Soda", "Water"])
 
 # ------------------------------------------
-# MENUS
+# MENUS / METHOD TESTS
 def menu():
     print("\nSelect Building:")
     print(f"[1] [{building1_name}] \n[2] [{building2_name}] \n[3] [{building3_name}] \n[4] [{building4_name}] \n[0] [Exit Program]")
