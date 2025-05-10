@@ -245,7 +245,7 @@ building3_name = "Research Lab"
 building4_name = "Building04"
 
 building1 = Library("Batangas", 100, 4, 24, 2000, "8AM - 5PM")
-building2 = Building2("Taal", 50, 2, 16)
+building2 = Retail_Building("SM Lemery", 14000, 2, 4, personal_budget=5000)
 building3 = ResearchLab("Lipa", 150, 6, 36, 5, "9AM - 6PM")
 building4 = Building4("Quezon", 200, 10, 100)
 
@@ -270,7 +270,7 @@ def menu():
         return menu()
 
 def menu2(selected_building):
-    print(f"\nDescription: {selected_building.location_status()}")
+    print(f"\n{selected_building.location_status()}")
     selected_building.location_action_menu()
 
 def general_actions(selected_building):
@@ -326,4 +326,106 @@ def request_equipment(research_lab):
     return menu2(research_lab)
 
 # ------------------------------------------
+# RETAIL BUILDING SHOP DATA
+building2.stores_floor1 = [
+    {'name': 'Bench Body', 'products': [
+        {'name': 'Classic White T-shirt', 'price': 399},
+        {'name': 'Denim Jeans', 'price': 799},
+        {'name': 'Floral Summer Dress', 'price': 799},
+        {'name': 'Cotton Boxer Briefs (3-pack)', 'price': 799},
+        {'name': 'Canvas Tote Bag', 'price': 799},
+        {'name': 'Leather Wallet', 'price': 799},
+        {'name': 'Striped Polo Shirt', 'price': 799},
+        {'name': 'Cotton Socks (5-pack)', 'price': 799},
+        {'name': 'Knit Beanie', 'price': 799},
+        {'name': 'Linen Button-down Shirt', 'price': 799},
+    ]},
+    {'name': 'National Bookstore', 'products': [
+        {'name': 'College Notebook', 'price': 45.00},
+        {'name': 'Ballpen (Black)', 'price': 12.00},
+        {'name': 'Scientific Calculator', 'price': 395.00},
+        {'name': 'Sticker Set', 'price': 89.00},
+        {'name': 'Colored Pencils (24pc)', 'price': 199.00},
+        {'name': 'Harry Potter Paperback', 'price': 599.00},
+        {'name': 'Plastic Folder', 'price': 25.00},
+        {'name': 'Watercolor Paint Set', 'price': 249.00},
+        {'name': 'Correction Tape', 'price': 55.00},
+        {'name': 'Stapler with Staples', 'price': 129.00}
+    ]},
+    {'name': 'Greenwich', 'products': [
+        {'name': 'Hawaiian Overload Pizza (Large)', 'price': 349.00},
+        {'name': 'Spaghetti Platter', 'price': 129.00},
+        {'name': 'Garlic Pepper Beef Rice Meal', 'price': 159.00},
+        {'name': 'Chicken Wings (6pc)', 'price': 189.00},
+        {'name': 'Lasagna Supreme', 'price': 179.00},
+        {'name': 'Tuna Melt Sandwich', 'price': 99.00},
+        {'name': 'Overloaded Fries', 'price': 119.00},
+        {'name': 'Iced Tea (Regular)', 'price': 45.00},
+        {'name': 'Pepperoni Overload Pizza (Family)', 'price': 499.00},
+        {'name': 'Choco Lava Cake', 'price': 69.00}
+    ]},
+    {'name': 'Cotti Coffee', 'products': [
+        {'name': 'Americano (Hot)', 'price': 110.00},
+        {'name': 'Iced Latte', 'price': 140.00},
+        {'name': 'Matcha Latte', 'price': 150.00},
+        {'name': 'Croissant', 'price': 95.00},
+        {'name': 'Blueberry Cheesecake', 'price': 165.00},
+        {'name': 'Cold Brew', 'price': 130.00},
+        {'name': 'Chocolate Chip Cookie', 'price': 75.00},
+        {'name': 'Caramel Macchiato', 'price': 155.00},
+        {'name': 'Tiramisu', 'price': 175.00},
+        {'name': 'Bottled Water', 'price': 40.00}
+    ]},
+]
+
+building2.stores_floor2 = [
+    {'name': 'Octagon', 'products': [
+        {'name': 'Wireless Earbuds', 'price': 1299.00},
+        {'name': 'Bluetooth Speaker', 'price': 899.00},
+        {'name': 'Power Bank 10000mAh', 'price': 799.00},
+        {'name': 'USB-C Cable', 'price': 199.00},
+        {'name': 'Smartwatch', 'price': 2499.00},
+        {'name': 'HDMI Cable', 'price': 349.00},
+        {'name': 'Wireless Mouse', 'price': 499.00},
+        {'name': '32GB USB Flash Drive', 'price': 399.00},
+        {'name': 'Phone Stand', 'price': 149.00},
+        {'name': 'Screen Protector', 'price': 299.00}
+    ]},
+    {'name': 'Miniso', 'products': [
+        {'name': 'Scented Candle', 'price': 199.00},
+        {'name': 'Plush Toy (Small)', 'price': 299.00},
+        {'name': 'Face Mask (5pc)', 'price': 149.00},
+        {'name': 'Portable Fan', 'price': 499.00},
+        {'name': 'Anime Socks', 'price': 129.00},
+        {'name': 'Ceramic Mug', 'price': 249.00},
+        {'name': 'Phone Case', 'price': 199.00},
+        {'name': 'LED Desk Lamp', 'price': 599.00},
+        {'name': 'Backpack', 'price': 699.00},
+        {'name': 'Hair Clip Set', 'price': 99.00}
+    ]},
+    {'name': 'Beyond the Box', 'products': [
+        {'name': 'Apple AirPods Pro (2nd Gen)', 'price': 14990.00},
+        {'name': 'Sony WH-1000XM5 Headphones', 'price': 25990.00},
+        {'name': 'Dyson Supersonic Hair Dryer', 'price': 23990.00},
+        {'name': 'Marshall Stanmore II Bluetooth Speaker', 'price': 19990.00},
+        {'name': 'Nintendo Switch OLED', 'price': 16990.00},
+        {'name': 'Bose QuietComfort Earbuds', 'price': 14990.00},
+        {'name': 'Samsung Galaxy Watch5 Pro', 'price': 23990.00},
+        {'name': 'JBL Flip 6 Portable Speaker', 'price': 7990.00},
+        {'name': 'Logitech MX Master 3S Mouse', 'price': 6990.00},
+        {'name': 'OtterBox iPhone 14 Pro Case', 'price': 3490.00}
+    ]},
+    {'name': 'Samsung', 'products': [
+        {'name': 'Galaxy S23 Ultra (256GB)', 'price': 84990.00},
+        {'name': 'Galaxy Z Fold5 (512GB)', 'price': 98990.00},
+        {'name': 'Galaxy Tab S9 Ultra (5G)', 'price': 49990.00},
+        {'name': 'Galaxy Watch6 Classic (47mm)', 'price': 24990.00},
+        {'name': 'Galaxy Buds2 Pro', 'price': 11990.00},
+        {'name': '65" QLED 4K Smart TV', 'price': 129990.00},
+        {'name': '32" Smart Monitor M70B', 'price': 19990.00},
+        {'name': 'Portable SSD T7 (1TB)', 'price': 9990.00},
+        {'name': 'Bespoke Refrigerator 4-Door', 'price': 159990.00},
+        {'name': 'Ecobubble Washing Machine (9kg)', 'price': 69990.00}
+    ]},
+]
 menu()  # START THE PROGRAM
