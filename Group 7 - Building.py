@@ -49,12 +49,12 @@ class Library(Building):
         self.opening_hours = opening_hours
 
     def location_status(self):
-        return (f"The Library is at {self.location}, with a size of {self.size}m^2, "
+        return (f"The Library is at {self.location}, with a size of {self.size}m², "
                 f"it has {self.floors} floors, {self.rooms} rooms, "
                 f"{self.num_books} books, and is open during {self.opening_hours}.")
 
     def location_action_menu(self):
-        print("[1] [General Actions]  \n[2] [Borrow Book]  \n[3] [Return Book]  \n[4] [Go Back]")
+        print("[1] [General Actions]  \n[2] [Borrow Book]  \n[3] [Return Book]  \n[0] [Go Back]")
         choice = int(input("Action Chosen: "))
         if choice == 1:
             general_actions(building1)
@@ -62,7 +62,7 @@ class Library(Building):
             borrow_book(building1)
         elif choice == 3:
             return_book(building1)
-        elif choice == 4:
+        elif choice == 0:
             return menu()
         else:
             print("Please Select A Valid Number!")
@@ -200,12 +200,12 @@ class ResearchLab(Building):
         self.open_hours = open_hours
 
     def location_status(self):
-        return (f"The Research Lab is at {self.location}, with a size of {self.size}m^2, "
+        return (f"The Research Lab is at {self.location}, with a size of {self.size}m², "
                 f"it has {self.floors} floors, {self.rooms} rooms, {self.num_labs} laboratories, "
                 f"and is operational during {self.open_hours}.")
 
     def location_action_menu(self):
-        print("[1] [General Actions]  \n[2] [Publish Research]  \n[3] [Request Lab Equipment]  \n[4] [Go Back]")
+        print("[1] [General Actions]  \n[2] [Publish Research]  \n[3] [Request Lab Equipment]  \n[0] [Go Back]")
         choice = int(input("Action Chosen: "))
         if choice == 1:
             general_actions(building3)
@@ -213,7 +213,7 @@ class ResearchLab(Building):
             publish_research(building3)
         elif choice == 3:
             request_equipment(building3)
-        elif choice == 4:
+        elif choice == 0:
             return menu()
         else:
             print("Please Select A Valid Number!")
@@ -230,30 +230,67 @@ class ResearchLab(Building):
     
 # ------------------------------------------
 # Building 4 - Shanlee
-class Building4(Building):
+class CanteenBuilding(Building):
+    def __init__(self, location, size, floors, rooms, number_of_tables, menu_items):
+        super().__init__(location, size, floors, rooms)
+        self.number_of_tables = number_of_tables
+        self.menu_items = menu_items 
+
+    def open_doors(self):
+        print(f"\nCanteen is now open. Enjoy your meal!")
+
+    def close_doors(self):
+        print(f"\nCanteen is now closed. Please come again.")
+
+    def order_food(self, item):
+        if item in self.menu_items:
+            print(f"\n{item} has been ordered. Please wait while we prepare it.")
+        else:
+            print(f"\nSorry, {item} is not available on the menu.")
+
+    def clean_tables(self):
+        print(f"\nCleaning all {self.number_of_tables} tables in the canteen.")
+
     def location_status(self):
-        return f"Building 4 is at {self.location}, with a size of {self.size}m^2, it has {self.floors} floors, and {self.rooms} rooms in total."
+        return f"\nWelcome to the {self.location}, this canteen covers a size of {self.size}m², it has {self.floors} floor, and {self.rooms} room in total, with {self.number_of_tables} total tables."
 
     def location_action_menu(self):
-        return "Your Building's Method Menu Go Here"
+        while True:
+            print("[1] [Check Building Facilities]  \n[2] [Order Food] \n[3] [Clean Tables] \n[0] [Go Back]")
+            choice = int(input("Action Chosen: "))
+            if choice == 1:
+                general_actions(building4)
+            elif choice == 2:
+                if not self.doors_are_open:
+                    print(f"Canteen is closed! Please open them first.")
+                    return menu2(building4)
+                else:
+                    building4.order_food(input(f"\n[Burger] \n[Fries] \n[Shawarma] \n[Soda] \n[Water] \nType Name of Food: "))
+            elif choice == 3:
+                building4.clean_tables()
+            elif choice == 0:
+                return menu()
+            else:
+                print("Please Select A Valid Number!")
+                return menu2(building4)
 
 # ------------------------------------------
 # STATIC BUILDING INSTANCES
 building1_name = "Library"
 building2_name = "Mall"
 building3_name = "Research Lab"
-building4_name = "Building04"
+building4_name = "Canteen"
 
 building1 = Library("Batangas", 100, 4, 24, 2000, "8AM - 5PM")
-building2 = Retail_Building("SM Lemery", 14000, 2, 4, personal_budget=5000)
+building2 = Retail_Building("SM Lemery", 14000, 2, 4, personal_budget=100000)
 building3 = ResearchLab("Lipa", 150, 6, 36, 5, "9AM - 6PM")
-building4 = Building4("Quezon", 200, 10, 100)
+building4 = CanteenBuilding("Campus North Wing", "300 sqm", 1, 1, 20, ["Burger", "Fries", "Shawarma", "Soda", "Water"])
 
 # ------------------------------------------
 # MENUS
 def menu():
     print("\nSelect Building:")
-    print(f"[1] [{building1_name}] \n[2] [{building2_name}] \n[3] [{building3_name}] \n[4] [{building4_name}] \n[5] [Exit Program]")
+    print(f"[1] [{building1_name}] \n[2] [{building2_name}] \n[3] [{building3_name}] \n[4] [{building4_name}] \n[0] [Exit Program]")
     selected_building = int(input("Bldg No. : "))
     if selected_building == 1:
         menu2(building1)
@@ -263,7 +300,7 @@ def menu():
         menu2(building3)
     elif selected_building == 4:
         menu2(building4)
-    elif selected_building == 5:
+    elif selected_building == 0:
         exit()
     else:
         print("Please Select A Valid Number!")
