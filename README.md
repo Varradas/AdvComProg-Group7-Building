@@ -1,7 +1,7 @@
 # AdvComProg-Group7-Building
 Laboratory Activities 3 &amp; 4
 
-# Building Management System
+# Building Management System :city_sunrise:
 
 ## Team Members
 - Mendoza, John Laurence
