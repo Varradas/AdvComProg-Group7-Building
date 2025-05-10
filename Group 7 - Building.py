@@ -77,7 +77,7 @@ class Library(Building):
 
 # ------------------------------------------
 # Building 2 - Vinz
-class Retail_Building(Building):
+class Mall(Building):
     def __init__(self, location, size, floors, rooms, personal_budget=0):
         super().__init__(location, size, floors, rooms)
         self.personal_budget = personal_budget
@@ -282,7 +282,7 @@ building3_name = "Research Lab"
 building4_name = "Canteen"
 
 building1 = Library("Batangas", 100, 4, 24, 2000, "8AM - 5PM")
-building2 = Retail_Building("SM Lemery", 14000, 2, 4, personal_budget=100000)
+building2 = Mall("SM Lemery", 14000, 2, 4, personal_budget=100000)
 building3 = ResearchLab("Lipa", 150, 6, 36, 5, "9AM - 6PM")
 building4 = CanteenBuilding("Campus North Wing", "300 sqm", 1, 1, 20, ["Burger", "Fries", "Shawarma", "Soda", "Water"])
 
