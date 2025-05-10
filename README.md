@@ -16,7 +16,7 @@ This project simulates the management of different types of buildings through ob
 - :bulb: Toggle Lights On/Off
 - :icecream: Toggle Air Conditioning On/Off
 ## Unique Subclass Functions
-- :book: **Library**: Borrow and return books. - by Mendoza Laurence
+- :book: **Library**: Borrow and return books. - <ins>by Mendoza Laurence</ins>
 - :department_store: **Mall**: Browse stores, add products to a cart, and checkout with a budget. - by De Castro, Vinz Gabriel
 - :books: **Research Lab**: Publish research and request lab equipment. - by Ponce, Jyvhan Earl
 - :hamburger: **Canteen**: Order food, clean tables. - by Gupilan, Shanlee Yvonne
