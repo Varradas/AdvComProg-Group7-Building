@@ -94,7 +94,7 @@ class Building2(Building):
 
 # ------------------------------------------
 # Building 3 - Jyvhan (YOU) ➜ RESEARCH LAB
-class Building3(Building):
+class ResearchLab(Building):
     def __init__(self, location, size, floors, rooms, num_labs, open_hours):
         super().__init__(location, size, floors, rooms)
         self.num_labs = num_labs
@@ -147,7 +147,7 @@ building4_name = "Building04"
 
 building1 = Library("Batangas", 100, 4, 24, 2000, "8AM - 5PM")
 building2 = Building2("Taal", 50, 2, 16)
-building3 = Building3("Lipa", 150, 6, 36, 5, "9AM - 6PM")
+building3 = ResearchLab("Lipa", 150, 6, 36, 5, "9AM - 6PM")
 building4 = Building4("Quezon", 200, 10, 100)
 
 # ------------------------------------------
