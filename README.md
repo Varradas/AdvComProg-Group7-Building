@@ -21,7 +21,7 @@ This project simulates the management of different types of buildings through ob
 The program uses object-oriented principles with an abstract base class (`Building`) and concrete implementations for each building type. Users interact via a command-line menu system.
 
 ## How to Run the Program
-1. **Prerequisites**: Ensure Python is installed. You may install via their website (https://www.python.org/downloads/) or by typing "python" in the command line.
+1. **Prerequisites**: Ensure Python is installed. You may install via their website (https://www.python.org/downloads/) or by typing `python` in the command line.
 2. **Download the Script**: Save the provided `Group 7 - Building.py` file.
 3. **Run the Script**:
    - Navigate to the directory where the downloaded script is located in.
