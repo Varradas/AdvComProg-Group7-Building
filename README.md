@@ -29,7 +29,7 @@ The program uses object-oriented principles with an abstract base class (`Buildi
 4. **Follow the Menu Prompts**:
    - The script uses various menus to navigate between subclasses and it's features, use numbers to choose between the options presented to you.
    - Typing [0] will make the program go back to the previous menu.
-   - Select different buildings to access various actions like toggling facilities, borrowing books, shopping, or ordering food.
+   - Select different buildings to access various actions like toggling facilities, borrowing books, shopping, researching or ordering food.
 
 ## Acknowledgement
-Thank you to our team members for their contributions to this project. Special thanks to Sir Richard Esguerra for teaching us in this semester, it was a useful and pleasant experience having you as our Professor for Advanced Computer Programming and Programming. :heart:
+Thank you to our team members for their contributions to this project. Special thanks to Sir Richard Esguerra for teaching us in this semester, it was a useful and pleasant experience having you as our Professor for Advanced Computer Programming and Programming. :heart: :heart: :heart:
