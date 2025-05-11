@@ -3,7 +3,7 @@
 ## Group 7 CS-1202 Members:
 - **Mendoza, John Laurence**
 - **De Castro, Vinz Gabriel**
-- **Ponce, Jyvhan Earl**
+- **Ponce, Jyvhan Earl D.**
 - **Gupilan, Shanlee Yvonne**
 
 ## Description
@@ -32,4 +32,4 @@ The program uses object-oriented principles with an abstract base class (`Buildi
    - Select different buildings to access various actions like toggling facilities, borrowing books, shopping, or ordering food.
 
 ## Acknowledgement
-Thank you to our team members for their contributions to this project. Special thanks to Sir Esguerra for teaching us in this semester, it was a useful and pleasant experience having you as our Proffessor for Advanced Computer Programming and Programming. :heart:
+Thank you to our team members for their contributions to this project. Special thanks to Sir Richard Esguerra for teaching us in this semester, it was a useful and pleasant experience having you as our Professor for Advanced Computer Programming and Programming. :heart:
