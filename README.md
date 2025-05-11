@@ -1,7 +1,4 @@
-# AdvComProg-CS1202-Group7-Building
-Laboratory Activities 3 &amp; 4
-
-# Building Management System :city_sunrise:
+# Building Management System - Laboratory 3 & 4 :city_sunrise:
 
 ## Group 7 CS-1202 Members:
 - **Mendoza, John Laurence**
