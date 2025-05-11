@@ -1,9 +1,9 @@
-# AdvComProg-Group7-Building
+# AdvComProg-CS1202-Group7-Building
 Laboratory Activities 3 &amp; 4
 
 # Building Management System :city_sunrise:
 
-## Team Members
+## Group 7 CS-1202 Members:
 - **Mendoza, John Laurence**
 - **De Castro, Vinz Gabriel**
 - **Ponce, Jyvhan Earl**
