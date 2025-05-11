@@ -192,7 +192,7 @@ class Mall(Building):
         self.cart.clear()
 
 # ------------------------------------------
-# Building 3 - Jyvhan (YOU) ➜ RESEARCH LAB
+# Building 3 - Jyvhan ➜ RESEARCH LAB
 class ResearchLab(Building):
     def __init__(self, location, size, floors, rooms, num_labs, open_hours):
         super().__init__(location, size, floors, rooms)
